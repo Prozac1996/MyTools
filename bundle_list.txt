@@ -1,0 +1,3 @@
+TestApplication git@git.jd.com:liufangzheng/TestApplication.git
+TestLibrary git@git.jd.com:liufangzheng/TestLibrary.git
+LiufangBox git@git.jd.com:liufangzheng/LiufangBox.git
