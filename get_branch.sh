@@ -3,12 +3,14 @@
 ###########################################
 #
 # 获取所有的分支，导出为Json格式数据
+# 输入：库文件列表 导出文件名
+# 输出：在导出文件里生成json数据
 #
 ###########################################
 
 # 用法
-if [ $# -ne 1 ];then
-	echo -e "\e[1;31m Usage: $0 bundle_list! \e[0m"
+if [ $# -ne 2 ];then
+	echo -e "\e[1;31m Usage: $0 source_file dest_file \e[0m"
 	exit 1
 fi
 
@@ -19,11 +21,12 @@ appendToJson(){
 
 
 # 设置全局变量
-rootDir=`pwd`
+oldDir=`pwd`
+rootDir=/home/liufangzheng/Project/Script/MyTools
 tempDir="tempGit"
 tempBranchList="tempBranchList"
 OLDIFS=$IFS
-destFile=$rootDir/"bundle_branch_list.txt"
+destFile=$rootDir/"$2"
 
 # 添加Git库列表，拉取全部分支
 mkdir $tempDir
@@ -69,4 +72,4 @@ appendToJson "\n]}\n"
 IFS=$OLDIFS
 cd $rootDir
 rm -rf "$tempDir"
-
+cd $oldDir
